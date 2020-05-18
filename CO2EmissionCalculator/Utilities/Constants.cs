@@ -6,11 +6,13 @@ namespace CO2EmissionCalculator.Utilities
 {
     public static class Constants
     {
+        //define distance and weight units 
         public const string KiloMetter = "km";
         public const string Metter = "m";
         public const string KiloGram = "kg";
         public const string Gram = "g";
 
+        //define flags contants 
         public const string TransportationMethod = "--transportation-method";
         public const string Distance = "--distance";
         public const string UnitOfDistance = "--unit-of-distance";
@@ -18,6 +20,9 @@ namespace CO2EmissionCalculator.Utilities
 
         public const char EqualSign = '=';
     }
+    /// <summary>
+    /// Define Transportion type enum, this enum consist all type of transport
+    /// </summary>
     public enum TransportationTypeEnum
     {
         small_diesel_car,
@@ -35,7 +40,10 @@ namespace CO2EmissionCalculator.Utilities
         bus,
         train
     }
-    public enum TrasportationCategoryEnum
+    /// <summary>
+    /// Define transprotation category enum 
+    /// </summary>
+    public enum TransportationCategoryEnum
     {
         small,
         medium,

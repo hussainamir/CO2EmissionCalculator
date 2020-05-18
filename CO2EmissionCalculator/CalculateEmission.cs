@@ -25,6 +25,10 @@ namespace CO2EmissionCalculator
         {
           _userInput=  _parseCommand.ParseArgs(args);
         }
+        /// <summary>
+        /// Calculate Emission rate by given distance
+        /// </summary>
+        /// <returns>this method will return emission rate into string type </returns>
         public string Emission_Calculator()
         {
            
@@ -52,9 +56,12 @@ namespace CO2EmissionCalculator
                 else { _gram = 1000; weightSign = Constants.KiloGram; }
             }
 
-        }  
-        
-        //convert distance into km if distance is m
+        }
+
+        /// <summary>
+        /// convert distance into km if distance is m
+        /// </summary>
+        /// <returns></returns>
         private double convertedDistance()
         {
           

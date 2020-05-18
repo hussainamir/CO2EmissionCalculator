@@ -23,25 +23,25 @@ namespace CO2EmissionCalculator.Services
             {
                 //Convert first element of splitted string into 
                 //TransportationCategoryEnum type
-                TrasportationCategoryEnum transportEnum;
+                TransportationCategoryEnum transportEnum;
                 if (Enum.TryParse(split[0], out transportEnum))
                 {
                     //Create trasport object at runtime (Factory desing pattern)
                     switch (transportEnum)
                     {
-                        case TrasportationCategoryEnum.train:
+                        case TransportationCategoryEnum.train:
                             transport = new Train();
                             break;
-                        case TrasportationCategoryEnum.bus:
+                        case TransportationCategoryEnum.bus:
                             transport = new Bus();
                             break;
-                        case TrasportationCategoryEnum.medium:
+                        case TransportationCategoryEnum.medium:
                             transport = new MediumCar();
                             break;
-                        case TrasportationCategoryEnum.small:
+                        case TransportationCategoryEnum.small:
                             transport = new SmallCar();
                             break;
-                        case TrasportationCategoryEnum.large:
+                        case TransportationCategoryEnum.large:
                             transport = new LargeCar();
                             break;
                     }

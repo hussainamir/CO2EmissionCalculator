@@ -25,6 +25,11 @@ namespace CO2EmissionCalculator.Services
             TrasportMap.Add(TransportationTypeEnum.bus, 27);
             TrasportMap.Add(TransportationTypeEnum.train, 6);
         }
+        /// <summary>
+        /// get emission from transport type by Mapping technique
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns> this method will return emission rate into doulbe type</returns>
         public double GetEmission(string value)
         {
             value = value.Replace('-', '_');

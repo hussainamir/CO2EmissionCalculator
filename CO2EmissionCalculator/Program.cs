@@ -10,13 +10,21 @@ namespace CO2EmissionCalculator
         private static IServiceProvider _serviceProvider;
         static void Main(string[] args)
         {
+            // Resolve dependency injection 
             RegisterServices();
-           // args = new string[] { "--transportation-method", "medium-diesel-car", "--distance=15", "--unit-of-distance=km" };
+         
+            // args = new string[] { "--transportation-method", "medium-diesel-car", "--distance=15", "--unit-of-distance=km" };
+            // Get ICalculateEmission instance 
             var calculatEmission= _serviceProvider.GetService<ICalculateEmission>();
-
+            
+            // Parse UserInformation 
             calculatEmission.GetUserCommand(args);
-            Console.WriteLine($"Your trip caused {calculatEmission.Emission_Calculator()} of CO2-equivalent");
+            // Calculate emission rate by given distance and transporter type
+            var output = calculatEmission.Emission_Calculator();
+            // Display output into console window
+            Console.WriteLine($"Your trip caused {output} of CO2-equivalent");
 
+           // releasing unmanaged resources
             DisposeServices();
         }
         private static void RegisterServices()
