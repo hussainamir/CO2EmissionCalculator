@@ -1,0 +1,1 @@
+START cmd.exe /k "cd CO2EmissionCalculator &dotnet run -- --unit-of-distance=km --distance 15 --transportation-method=medium-diesel-car"
