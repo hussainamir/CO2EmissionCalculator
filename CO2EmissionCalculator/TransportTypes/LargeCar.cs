@@ -8,14 +8,14 @@ namespace CO2EmissionCalculator.TransportTypes
 {
     public class LargeCar : ITransport
     {
-        public Dictionary<TransportationTypeEnum, int> TransportEmision { get; set; }
+        public Dictionary<TransportationTypeEnum, int> TransportEmission { get; set; }
         public LargeCar()
         {
-            TransportEmision = new Dictionary<TransportationTypeEnum, int>();
-            TransportEmision.Add(TransportationTypeEnum.large_diesel_car, 209);
-            TransportEmision.Add(TransportationTypeEnum.large_petrol_car, 282);
-            TransportEmision.Add(TransportationTypeEnum.large_plugin_hybrid_car, 126);
-            TransportEmision.Add(TransportationTypeEnum.large_electric_car, 73);
+            TransportEmission = new Dictionary<TransportationTypeEnum, int>();
+            TransportEmission.Add(TransportationTypeEnum.large_diesel_car, 209);
+            TransportEmission.Add(TransportationTypeEnum.large_petrol_car, 282);
+            TransportEmission.Add(TransportationTypeEnum.large_plugin_hybrid_car, 126);
+            TransportEmission.Add(TransportationTypeEnum.large_electric_car, 73);
         }
     }
 }

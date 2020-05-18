@@ -16,6 +16,12 @@ namespace CO2EmissionCalculatorTest.ServicesTest
             tFactory = new TranportationFactory();
 
         }
+        /// <summary>
+        /// Test GetEmission method for each value of
+        /// transporter categroy with true value
+        /// </summary>
+        /// <param name="transportType"></param>
+        /// <param name="actualEmissionrate"></param>
         [TestCase("small-diesel-car", 142)]
         [TestCase("small-petrol-car ", 154)]
         [TestCase("small-plugin-hybrid-car", 73)]
@@ -37,6 +43,11 @@ namespace CO2EmissionCalculatorTest.ServicesTest
             Assert.AreEqual(calculatedEmsion, actualEmissionrate);
 
         }
+        /// <summary>
+        /// Test GetEmission method for false value 
+        /// </summary>
+        /// <param name="transportType"></param>
+        /// <param name="actualEmissionrate"></param>
         [TestCase("smalldiesel-car", 142)]
         [TestCase("small-petrolcar ", 154)]
         [TestCase("smallplugin-ybrid-car", 73)]

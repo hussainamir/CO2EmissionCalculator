@@ -17,7 +17,11 @@ namespace CO2EmissionCalculatorTest
             cEmission = new CalculateEmission(new ParseCommand());
 
         }
-
+        /// <summary>
+        /// Test Emission method for true values, 
+        /// </summary>
+        /// <param name="argValue"></param>
+        /// <param name="actualResult"></param>
         [TestCase(new string[] { "--transportation-method", "medium-diesel-car", "--distance 15", "--unit-of-distance km" }, "2.6kg")]
         [TestCase(new string[] { "--transportation-method", "large-petrol-car", "--distance=1800.5" }, "507.7kg")]
         [TestCase(new string[] { "--unit-of-distance=m", "--distance", "14500", "--transportation-method=train" }, "87g")]
@@ -30,6 +34,11 @@ namespace CO2EmissionCalculatorTest
             var expected = cEmission.Emission_Calculator();
             Assert.AreEqual(expected, actualResult);
         }
+        /// <summary>
+        /// Test Emission method with false values, 
+        /// </summary>
+        /// <param name="argValue"></param>
+        /// <param name="actualResult"></param>
         [TestCase(new string[] { "--transportation-method", "medium-diesel-car", "--distance", "--15", "--unit-of-distance km" }, "2.6kg")]
         [TestCase(new string[] { "--transportation-methodlarge-petrol-car", "--distance=1800.5" }, "507.7kg")]
         [TestCase(new string[] { "--unit-of-distance=m", "--distance", "140500", "--transportation-method=train" }, "87g")]

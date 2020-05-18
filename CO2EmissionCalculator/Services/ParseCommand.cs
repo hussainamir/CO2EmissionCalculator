@@ -11,10 +11,7 @@ namespace CO2EmissionCalculator.Services
 {
    public class ParseCommand: IParseCommand
     {
-        //public double Emission { get; set; }
-        //public double Distance { get; set; }
-        //public string UnitOfDistance { get; set; }
-        //public string UnitOfOuput { get; set; }
+        
         public UserData UserInput { get; set; }
         List<string> Args = new List<string>();
         public ParseCommand()
@@ -23,17 +20,23 @@ namespace CO2EmissionCalculator.Services
            
         }
        /// <summary>
-       /// Parse User command
+       /// this method parse user information from string array to UserData
        /// </summary>
        /// <param name="args"></param>
         public UserData ParseArgs(string[] args)
         {
+            //if any array element consist of equal sign or space then split
+            // and add into list
             splitFlagsAndValues(args);
 
+            //Split Flages and values from Args List
             for (int i = 1; i < Args.Count; i += 2)
             {
+                //assume that (i-1)th elment is flag and ith element is value
                 var arg = Args[i - 1];
                 var value = Args[i];
+                //(i-1)th element should be flag and ith element should be value
+                // where flag sting consist on -- and value are without -- characters 
                 if (new Regex(@"^--").IsMatch(arg) && !(new Regex(@"^--").IsMatch(value)))
                 {
                     switch (arg)
@@ -56,11 +59,13 @@ namespace CO2EmissionCalculator.Services
                             break;
                     }
                 }
-            }
-           
-            //runtime complexity is O(N/2)
+            }          
+            
             return UserInput;
+
+            //runtime complexity is O(N/2)
         }
+
         /// <summary>
         /// Split user command line into Flag and value and add into list
         /// </summary>
@@ -71,10 +76,11 @@ namespace CO2EmissionCalculator.Services
             for (int i = 0; i < args.Length; i++)
             {
                 var arg = args[i];
-                var equalSing = Constants.EqualSign;
-                if (arg.Contains(equalSing) || arg.Any(char.IsWhiteSpace))
+                var equalSign = Constants.EqualSign;
+                //split ith element if it contains euqal sign or space character,
+                if (arg.Contains(equalSign) || arg.Any(char.IsWhiteSpace))
                 {
-                    var split = arg.Split(new char[] { equalSing, ' ' });
+                    var split = arg.Split(new char[] { equalSign, ' ' });
                     Args.Add(split[0]);
                     Args.Insert(Args.Count, split[1]);
                 }

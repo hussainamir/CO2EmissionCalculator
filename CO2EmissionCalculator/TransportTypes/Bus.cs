@@ -8,11 +8,11 @@ namespace CO2EmissionCalculator.TransportTypes
 {
     public class Bus : ITransport
     {
-        public Dictionary<TransportationTypeEnum, int> TransportEmision { get; set; }
+        public Dictionary<TransportationTypeEnum, int> TransportEmission { get; set; }
         public Bus()
         {
-            TransportEmision = new Dictionary<TransportationTypeEnum, int>();
-            TransportEmision.Add(TransportationTypeEnum.bus, 27);
+            TransportEmission = new Dictionary<TransportationTypeEnum, int>();
+            TransportEmission.Add(TransportationTypeEnum.bus, 27);
         }
     }
 }

@@ -8,6 +8,6 @@ namespace CO2EmissionCalculator.Interfaces
    
     public interface ITransport
     {
-        public Dictionary<TransportationTypeEnum, int> TransportEmision { get; set; }
+        public Dictionary<TransportationTypeEnum, int> TransportEmission { get; set; }
     }
 }
